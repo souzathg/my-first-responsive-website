@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-transition: all ease-in-out 150ms;
+  transition: all ease-in-out 250ms;
 }
 
 body {
@@ -22,6 +22,51 @@ img {
   max-width: 70em;
 }
 
+.clearfix::after,
+section::after,
+footer::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ================= COLUMN SYSTEM ================= */
+
+[class^="col-"] {
+  width: 100%;
+  margin-top: 1em;
+}
+
+[class^="col-"]:first-child {
+  margin-top: 0;
+}
+
+.col-1 {
+  width: 33.33333334%;
+  float: left;
+}
+
+@media (min-width: 40rem) {
+  [class^="col-"] {
+    float: left;
+    padding: 0 0.5em;
+  }
+  .col-3 {
+    width: 50%;
+  }
+
+  .col-1 {
+    width: 16.66667%;
+  }
+
+  [class^="col-"]:first-child {
+    padding-left: 0;
+  }
+
+  [class^="col-"]:last-child {
+    padding-right: 0;
+  }
+}
 /* ================= TYPOGRAPHY ================= */
 
 h1 {
@@ -41,6 +86,16 @@ h1 {
   font-weight: 300;
   display: block;
   font-size: 0.9em;
+}
+
+.title-cta {
+  margin: 0 0 0.5em;
+}
+
+.unstyled-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 p {
@@ -99,6 +154,17 @@ p:last-of-type {
 .button-accent:focus {
   background: #00ff6c;
   color: #232323;
+}
+
+.button-dark {
+  color: #232323;
+  border-color: #232323;
+}
+
+.button-dark:hover,
+.button-dark:focus {
+  background: #232323;
+  color: #00ff6c;
 }
 
 /* ================= HEADER ================= */
@@ -226,7 +292,7 @@ nav a:focus {
 /* ================= PORTFOLIO ================= */
 
 .portfolio {
-  margin: 3em 0;
+  margin: 3em 0 0;
 }
 
 .port-item {
@@ -268,10 +334,25 @@ nav a:focus {
   }
 
   .port-desc {
-    transform: translateY(150%)
+    transform: translateY(150%);
   }
 
   .port-item:hover .port-desc {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
+}
+
+/* ================= CTA ================= */
+
+.cta {
+  background-color: #00ff6c;
+  padding: 3em 0;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: #232323;
+  color: #fff;
+  text-align: left;
+  padding: 5em 0;
 }
